@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="icon" href="/static/img/moorea_icon.png" type="image/x-icon">
+<link href="../static/css/error.css" rel="stylesheet" />
+<title> {% block title %} {{ super() }} Error {% endblock title %} </title>
+{% endblock head %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1 
+    > Lo sentimos.. no pudimos encontrar la página que buscás </h1>
+</div>
+
+{% endblock content %}
+

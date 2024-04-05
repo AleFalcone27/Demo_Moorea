@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link href="/static/css/user.css" rel="stylesheet" />
+<link href="/static/css/inbox.css" rel="stylesheet" />
+<link rel="icon" href="/static/img/moorea_icon.png" type="image/x-icon">
+<title> {% block title %} {{ super() }} Done {% endblock title %} </title>
+{% endblock head %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="top_bar">
+
+        <h1 style="font-family: monospace;"> Done </h1>
+
+        <div class="logout_icon_container">
+            SALIR
+            <a href="/logout">
+                <img src="/static/img/logout_icon.png" alt="Cerrar sesión">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="nav_bar">
+
+        <div class="moorea_icon_container">
+            <a href="/user">
+                <img class="moorea_icon" src="\static\img\moorea_icon.png" alt="">
+            </a>
+        </div>
+        <div class="nav_bar_items_container">
+            <hr>
+            <div class="inbox_icon_container">
+                <a href=" {{url_for('user_routes.user_inbox')}} ">
+                    <img class="inbox_icon" src="\static\img\inbox_icon.png" alt="">
+                </a>
+            </div>
+            <div class="done_icon_container">
+                <a href="">
+                    <img class="done_icon" src="\static\img\done_icon.png">
+                </a>
+            </div>
+
+            {% if session["user_isadmin"] == True %}
+            <div class="admin_icon_container">
+                <a href="/user/admin">
+                    <img class="admin_icon" src="\static\img\admin_icon.png" alt="">
+                </a>
+            </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+
+    <div class="canva">
+
+        {% block canva %}
+
+
+        {% for task in tasks %}
+
+        {% if task["status"] == "done" %}
+
+        <div class="task" style="display: flexx; width: 50%">
+
+            <div style="margin-top:4vh;" class="green_stick"> </div>
+
+            <form action="#" method="post" style="
+                    display: grid;
+                    grid-template-columns: 25% 25% 25% 25% ;
+                    grid-template-rows: 30% 70%;">
+                <div class="title"> <b> Title </b>
+                    <div class="title_content"> {{task["title"]}} </div>
+                </div>
+                <div class="description"> <b> Description </b>
+                    <div class="description_content"> {{task["description"]}} </div>
+                </div>
+                <div class="due_date"> <b> Due date </b>
+                    <div class="due_date_content"> {{task["due_date"]}} </div>
+                </div>
+                <div class="asignor"> <b> Asignor </b>
+                    <div class="asignor_content"> {{task["assignor"]}} </div>
+                </div>
+
+                <input type="hidden" name="args" value='{"_id": "{{ task["_id"] }}", "status": "done"}'>
+
+
+            </form>
+
+        </div>
+        {% endif %}
+
+        {% endfor %}
+
+
+        {% endblock canva %}
+
+
+    </div>
+
+    <div class="v3_12"></div>
+</div>
+
+{% endblock content %}

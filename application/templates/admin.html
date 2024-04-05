@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link href="../static/css/user.css" rel="stylesheet" />
+<link href="../static/css/admin.css" rel="stylesheet" />
+<link rel="icon" href="../static/img/moorea_icon.png" type="image/x-icon">
+<title> {% block title %} {{ super() }} Admin {% endblock title %} </title>
+{% endblock head %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="top_bar">
+
+        <h1 style="font-family: monospace;"> Admin panel </h1>
+
+        <div class="logout_icon_container">
+            SALIR
+            <a href="/logout">
+                <img src="/static/img/logout_icon.png" alt="Cerrar sesión">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="nav_bar">
+
+        <div class="moorea_icon_container">
+            <a href="/user">
+                <img class="moorea_icon" src="\static\img\moorea_icon.png" alt="">
+            </a>
+        </div>
+        <div class="nav_bar_items_container">
+            <hr>
+            <div class="inbox_icon_container">
+                <a href=" {{url_for('user_routes.user_inbox')}} ">
+                    <img class="inbox_icon" src="\static\img\inbox_icon.png" alt="">
+                </a>
+            </div>
+            <div class="done_icon_container">
+                <a href="{{url_for('user_routes.user_done')}}">
+                    <img class="done_icon" src="\static\img\done_icon.png">
+                </a>
+            </div>
+
+            {% if session["user_isadmin"] == True %}
+            <div class="admin_icon_container">
+                <a href="/user/admin">
+                    <img class="admin_icon" src="\static\img\admin_icon.png" alt="">
+                </a>
+            </div>
+            {% endif %}
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <div class="canva">
+
+        {% block canva %}
+
+        <div class="add_task">
+            <h2> Add task </h2>
+            <form action="#" method="post">
+
+                <input class="input_tittle" type="text" name="task_title" placeholder="Title:">
+                <input class="input_due_date" type="text" name="task_due_date" placeholder="Due date: dd/mm/yyyy">
+                <input class="input_description" type="text" name="task_description" placeholder="Description:">
+
+                <select name="task_assignee">
+                    {% for user in users %}
+                    <!-- Nos aseguramos de que no aparezca el nombre del actual usuario -->
+                    {% if user != session["user_name"] %}
+                    <option>
+                        {{user}}
+                    </option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+
+                <input class="submit_button" type="submit" value=" Assign " />
+            </form>
+        </div>
+
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <p style="
+
+                    margin-top: 70vh;
+     
+                    color: #6aba6e; font-size: 1em; font-weight: bold;">{{ messages.pop() }}</p>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+
+
+        <div class="permissions">
+
+            <h2> Permissions manager </h2>
+            <form action="/user/admin/privileges" method="post">
+
+                <select name="user_target">
+                    {% for user in users %}
+                    <!-- Nos aseguramos de que no aparezca el nombre del actual usuario -->
+                    {% if user != session["user_name"] %}
+                    <option>
+                        {{user}}
+                    </option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+
+                <input class="submit_button" type="submit" name="button" value="Revoke privileges" />
+                <input class="submit_button" type="submit" name="button" value="Grant privileges" />
+
+            </form>
+
+            <div class="permissions_content">
+
+
+            </div>
+        </div>
+
+        {% block flashed_messages %}
+
+        {% endblock flashed_messages %}
+
+
+
+        {% endblock canva %}
+
+    </div>
+
+
+
+
+
+</div>
+
+{% endblock content %}

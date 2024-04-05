@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="icon" href="../static/img/moorea_icon.png" type="image/x-icon">
+<link href="../static/css/user.css" rel="stylesheet" />
+<title> {% block title %} {{ super() }} Profile {% endblock title %} </title>
+{% endblock head %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="top_bar">
+
+        <h1 style="font-family: monospace;"> ¡ Hola {{ session["user_name"] }} ! </h1>
+
+        <div class="logout_icon_container">
+            SALIR
+            <a href="/logout">
+                <img src="./static/img/logout_icon.png" alt="Cerrar sesión">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="nav_bar">
+
+        <div class="moorea_icon_container">
+            <img class="moorea_icon" src=".\static\img\moorea_icon.png" alt="">
+        </div>
+        <div class="nav_bar_items_container">
+            <hr>
+            <div class="inbox_icon_container">
+                <a href=" {{url_for('user_routes.user_inbox')}} ">
+                    <img class="inbox_icon" src=".\static\img\inbox_icon.png" alt="">
+                </a>
+            </div>
+            <div class="done_icon_container">
+                <a href="{{url_for('user_routes.user_done')}}">
+                    <img class="done_icon" src=".\static\img\done_icon.png" alt="">
+                </a>
+            </div>
+
+            {% if session["user_isadmin"] == True %}
+
+            <div class="admin_icon_container">
+                <a href="{{url_for('user_routes.user_admin')}}">
+                    <img class="admin_icon" src=".\static\img\admin_icon.png" alt="">
+                </a>
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="canva">
+
+        {% block canva %}
+        {% endblock canva %}
+
+    </div>
+
+
+    {% block flashed_messages %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <p style="
+                        grid-row: 3;
+                        grid-column: 1;
+                        margin-top: 18vh;
+                        color: #6aba6e; font-size: 0.8em; font-weight: bold;">{{ messages.pop() }}</p>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    {% endblock flashed_messages %}
+
+
+</div>
+
+{% endblock content %}

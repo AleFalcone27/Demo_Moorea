@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+<link rel="icon" href="/static/img/moorea_icon.png" type="image/x-icon">
+<link rel="stylesheet" href="../static/css/login.css">
+<title> {% block title %} {{ super() }} Login {% endblock title %} </title>
+{% endblock head %}
+
+
+{% block content %}
+
+<body>
+    <div class="container">
+        <div class="moorea_logo_container">
+            <img src="..\static\img\moorea_logo.svg" alt="">
+        </div>
+
+        <form action="#" method="post">
+            <input class="input_email" type="text" name="email" placeholder="Email">
+            <input class="input_pass" type="Password" name="pass" placeholder="Password">
+            <input class="submit_button" type="submit" value=" Log in " />
+            <a class="submit_button" href="/register"> Register </a>
+        </form>
+
+        {% block flashed_messages %}
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <p style="
+                        grid-row: 3;
+                        grid-column: 1;
+                        margin-top: 18vh;
+                        color: #6aba6e; font-size: 0.8em; font-weight: bold;">{{ messages.pop() }}</p>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% endblock flashed_messages %}
+
+    </div>
+
+
+</body>
+
+
+
+{% endblock content %}
