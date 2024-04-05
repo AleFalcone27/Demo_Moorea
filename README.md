@@ -5,6 +5,7 @@ Este proyecto, como lo indica si titulo es una demo, y con funcionalidades de ti
 **Surgió** como una forma de practicar y consolidar mis conocimientos en el stack
 
 >  **Backend** Python con flask y MongoDB 🐍
+> 
 >  **Frontend** HTML con Jinja Templates ㊙️
 
 ## Features principales 🔧
@@ -31,4 +32,4 @@ Aparte del diseño, también usé los colores de Moorea y su ícono como **favic
 ![Diagrama de rutas](/diagrama_rutas.jpg)
 
 
-Si te interea podes descargarte un [video](https://github.com/AleFalcone27/Demo_Moorea/blob/main/Demo%20Moorea%20Video.mp4) de la demo para poder ver más de qe se trata el proyecto 😃
+Si te interea podes descargarte un [video](https://github.com/AleFalcone27/Demo_Moorea/blob/main/Demo%20Moorea%20Video.mp4) de la demo para poder ver más de que se trata el proyecto 😃
