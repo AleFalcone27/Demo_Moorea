@@ -28,4 +28,4 @@ Aparte del diseño, también usé los colores de Moorea y su ícono como **favic
 
 
 ## Diagrama de rutas
-
+![Diagrama de rutas](/diagrama_rutas.jpg)
