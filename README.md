@@ -31,5 +31,6 @@ Aparte del diseño, también usé los colores de Moorea y su ícono como **favic
 ## Diagrama de rutas
 ![Diagrama de rutas](/diagrama_rutas.jpg)
 
+<iframe src="https://player.vimeo.com/video/938636159" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 Si te interea podes descargarte un [video](https://github.com/AleFalcone27/Demo_Moorea/blob/main/Demo%20Moorea%20Video.mp4) de la demo para poder ver más de que se trata el proyecto 😃
