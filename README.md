@@ -4,6 +4,8 @@ Este proyecto, como lo indica si titulo es una demo, y con funcionalidades de ti
 
 **Surgió** como una forma de practicar y consolidar mis conocimientos en el stack
 
+[<video src="https://player.vimeo.com/video/938636159" controls="controls" muted="muted" ></video>](https://github.com/emapeire/tesla-landing/assets/83794890/a3c9aada-6a83-44b6-bb1f-ca8ef702f539)
+
 >  **Backend** Python con flask y MongoDB 🐍
 > 
 >  **Frontend** HTML con Jinja Templates ㊙️
@@ -31,6 +33,4 @@ Aparte del diseño, también usé los colores de Moorea y su ícono como **favic
 ## Diagrama de rutas
 ![Diagrama de rutas](/diagrama_rutas.jpg)
 
-[<video src="https://player.vimeo.com/video/938636159" controls="controls" muted="muted" ></video>](https://github.com/emapeire/tesla-landing/assets/83794890/a3c9aada-6a83-44b6-bb1f-ca8ef702f539)
 
-Si te interea podes descargarte un [video](https://github.com/AleFalcone27/Demo_Moorea/blob/main/Demo%20Moorea%20Video.mp4) de la demo para poder ver más de que se trata el proyecto 😃
