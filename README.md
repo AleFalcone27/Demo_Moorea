@@ -23,9 +23,13 @@ Aparte del diseño, también usé los colores de Moorea y su ícono como **favic
 
 ### Elementos utilizados de Flask 
  **Rutas**: Definir rutas para manejar las solicitudes HTTP utilizando el decorador `@app_routes.route` y `@user_routes.route`. 
+ 
  **Plantillas**: Utilización de plantillas Jinja2 para generar contenido HTML dinámico. -  
+ 
  **Renderizado de Plantillas**: Utilizar el método `render_template` para renderizar las plantillas Jinja2 en las vistas. 
+ 
 **Blueprints**: Organizar la aplicación en módulos reutilizables utilizando blueprints. -  
+
 **Pruebas Unitarias**: Escribir pruebas unitarias para asegurar la integridad y funcionalidad de la aplicación.
 
 
